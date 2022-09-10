@@ -21,5 +21,7 @@ public class Person {
 }
 /*
 * auto generation type creates another table in the database to auto increment the id value.
-* it has a column 'next value' which determines the value of the next id
+* it has a column 'next value' which determines the value of the next id.
+* if more than one model makes use of the auto generation, the same hibernate sequence table determines
+* the if of all the tables
 * */

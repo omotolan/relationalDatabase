@@ -14,7 +14,7 @@ class UserServiceImplTest {
     private UserService userService;
 
     @Test
-    public void testThatPersonCanBeCreated() {
+    public void testThatUserCanBeCreated() {
         /*
         Bi directional
          * test that when person is added, the address saves in the database
@@ -36,14 +36,14 @@ class UserServiceImplTest {
     }
 
     @Test
-    public void testThatPersonCanBeDeleted() {
+    public void testThatUserCanBeDeleted() {
         /*
          * delete with cascade type all
          * result: the instance and relationship were deleted
          * second delete, cascade was on persist
          * result: the relationship address was not deleted but person deleted
          * */
-        var id = 4L;
+        var id = 1L;
         String response = userService.deleteUser(id);
         assertEquals("deleted", response);
     }

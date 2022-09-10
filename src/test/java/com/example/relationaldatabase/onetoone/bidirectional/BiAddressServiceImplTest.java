@@ -18,8 +18,20 @@ class BiAddressServiceImplTest {
          * a find address by id was done and it returned the user also tho the user column is not showing
          * in the address table
          * */
-        BiAddress foundAddress = biAddressService.getUser(1L);
+        BiAddress foundAddress = biAddressService.getAddress(1L);
         assertEquals("Sikiru", foundAddress.getUser().getFirstName());
+    }
+    @Test
+    public void testToDeleteAddress(){
+        /*
+        * want to check what happens whenever i delete an address.
+        * 1. only annotation on the user field in the address model is 'mapped by' and 'cascade all' in the
+        * other direction
+        * result: was unable to delete the address. didnt delete
+        * */
+        Long id = 2L;
+        String response = biAddressService.deleteAddress(id);
+        assertEquals("deleted", response);
     }
 
 }

@@ -13,8 +13,25 @@ public class BiAddressServiceImpl implements BiAddressService {
     private BiAddressRepository biAddressRepository;
 
     @Override
-    public BiAddress getUser(Long id) {
+    public BiAddress getAddress(Long id) {
+
+        return findAddressInternal(id);
+    }
+
+    private BiAddress findAddressInternal(Long id) {
         Optional<BiAddress> biAddress = biAddressRepository.findById(id);
+        if (biAddress.isEmpty()) {
+            throw new RuntimeException();
+        }
         return biAddress.get();
+    }
+
+    @Override
+    public String deleteAddress(Long id) {
+       BiAddress address = findAddressInternal(id);
+       biAddressRepository.delete(address);
+        System.out.println(address.getUser().getFirstName());
+
+        return "deleted";
     }
 }

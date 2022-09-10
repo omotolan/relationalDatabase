@@ -15,7 +15,12 @@ public class Employee {
     private Long id;
     private String firstName;
     private String lastName;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinTable(name = "emp_workstation",
+            joinColumns =
+                    { @JoinColumn(name = "employee_id", referencedColumnName = "id") },
+            inverseJoinColumns =
+                    { @JoinColumn(name = "workstation_id", referencedColumnName = "id") })
     private WorkStation workStation;
 
 }

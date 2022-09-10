@@ -2,5 +2,7 @@ package com.example.relationaldatabase.onetoone.bidirectional;
 
 
 public interface BiAddressService {
-    BiAddress getUser(Long id);
+    BiAddress getAddress(Long id);
+
+    String deleteAddress(Long id);
 }
